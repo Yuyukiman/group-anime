@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grup Anime</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <h1>Terima kasih telah mengunjungi!</h1>
+    <p>Anda akan diarahkan ke grup anime WhatsApp dalam beberapa detik...</p>
+
+    <div class="button-container">
+        <p>Atau klik tombol di bawah ini untuk bergabung langsung ke grup WhatsApp:</p>
+        <a href="whatsapp://chat?code=Dc3MVJJAgLuLb0QjxOiml9">
+            <button>Gabung ke Grup Anime</button>
+        </a>
+    </div>
+
+    <script>
+        // Mengalihkan pengguna ke WhatsApp APK atau Web berdasarkan perangkat
+        function redirectToWhatsApp() {
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                // Mengarahkan ke WhatsApp APK jika di perangkat mobile
+                window.location.href = "whatsapp://chat?code=Dc3MVJJAgLuLb0QjxOiml9";
+                
+                // Jika gagal mengarahkan dalam 2 detik, kita coba arahkan lagi ke WhatsApp APK
+                setTimeout(function() {
+                    window.location.href = "whatsapp://chat?code=Dc3MVJJAgLuLb0QjxOiml9";
+                }, 2000); // 2 detik menunggu sebelum fallback
+            } else {
+                // Jika perangkat tidak mendukung WhatsApp APK (desktop), kita arahkan ke aplikasi WhatsApp
+                window.location.href = "whatsapp://chat?code=Dc3MVJJAgLuLb0QjxOiml9";
+            }
+        }
+
+        // Memanggil fungsi redirectToWhatsApp setelah 1,5 detik
+        setTimeout(redirectToWhatsApp, 1500);
+    </script>
+</body>
+</html>
